@@ -2,17 +2,19 @@ import { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-slate-400 px-20 py-20 grid gap-10 min-h-screen">
-      <div className="2xl:bg-blue-400 xl:bg-green-400 lg:bg-yellow-400 md:bg-orange-400 sm:bg-red-400 sm:hover:bg-pink-400 bg-white p-7 rounded-3xl shadow-2xl">
+    <div className="bg-slate-400 xl:place-content-center px-20 py-20 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 min-h-screen">
+      <div className="bg-white p-7 rounded-3xl shadow-2xl flex flex-col justify-between">
         <span className="font-semibold text-3xl">Select Item</span>
-        <div className="flex justify-between my-2">
-          <span className="text-gray-500">Grey Chair</span>
-          <span className="font-semibold">$19</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-500">Tooly Table</span>
-          <span className="font-semibold">$80</span>
-        </div>
+        <ul>
+          <div className="flex justify-between my-2">
+            <span className="text-gray-500">Grey Chair</span>
+            <span className="font-semibold">$19</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-gray-500">Tooly Table</span>
+            <span className="font-semibold">$80</span>
+          </div>
+        </ul>
         <div className="flex justify-between mt-2 pt-2 border-t-2 border-dashed">
           <span>Total</span>
           <span className="font-semibold">$99</span>
@@ -22,7 +24,7 @@ const Home: NextPage = () => {
         </button>
       </div>
       <div className="bg-white overflow-hidden rounded-2xl shadow-2xl">
-        <div className="bg-blue-500 p-6 pb-14">
+        <div className="p-6 pb-14 xl:pb-48 landscape:bg-teal-500 portrait:bg-indigo-500">
           <span className="text-white text-2xl">Profile</span>
         </div>
         <div className="rounded-3xl p-6 bg-white relative -top-5 group">
@@ -43,7 +45,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white p-6 rounded-2xl shadow-2xl">
+      <div className="bg-white p-6 rounded-2xl shadow-2xl lg:col-span-2 xl:col-span-1">
         <div className="flex mb-5 justify-between items-center">
           <span>🔙</span>
           <div className="space-x-3">
