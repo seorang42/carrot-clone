@@ -3,7 +3,6 @@ import { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <div className="bg-slate-400 xl:place-content-center px-20 py-20 grid gap-10 lg:grid-cols-2 xl:grid-cols-3 min-h-screen">
-      {/* if (darkMode === class) => add 'dark' in parent */}
       <div className="bg-white dark:bg-black p-7 rounded-3xl shadow-2xl flex flex-col justify-between">
         <span className="font-semibold text-3xl dark:text-white">
           Select Item
@@ -86,6 +85,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <div className="w-24 h-6 bg-[url('/vercel.svg')] bg-no-repeat"></div>
+      <h2 className="text-[200px] text-[#123]">Hello</h2>
     </div>
   );
 };
