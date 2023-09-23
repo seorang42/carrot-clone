@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { FieldErrors, useForm } from "react-hook-form";
 
 // Less code (o)
 // Better validation (o)
-// Better Errors (set, clear, display)
-// Have control over inputs
+// Better Errors (set, clear, display) (o)
+// Have control over inputs (o)
 // Don't deal with events (o)
 // Easier inputs (o)
 
@@ -11,22 +12,36 @@ interface LoginForm {
   username: string;
   password: string;
   email: string;
+  errors?: string;
 }
 
 export default function Forms() {
   const {
     register,
     handleSubmit,
+    setValue,
+    setError,
+    reset,
+    resetField,
     formState: { errors },
   } = useForm<LoginForm>({
     mode: "onChange",
   });
   const onValid = (data: LoginForm) => {
     console.log(data);
+    // if backend is offline
+    setError("errors", { message: "Backend is offline" });
+    // if backend says that username has taken
+    setError("username", { message: "Username is already existing" });
+    reset(); // reset all
+    resetField("password"); // reset only password
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   };
+  useEffect(() => {
+    setValue("username", "hello");
+  }, []);
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>
       <input
@@ -40,6 +55,7 @@ export default function Forms() {
         type="text"
         placeholder="Username"
       />
+      {errors.username?.message}
       <input
         {...register("email", {
           required: "Email is required",
@@ -59,6 +75,7 @@ export default function Forms() {
         placeholder="Password"
       />
       <input type="submit" value="Create Account" />
+      {errors.errors?.message}
     </form>
   );
 }
