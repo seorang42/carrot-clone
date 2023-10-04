@@ -70,7 +70,7 @@ async function handler(
 }
 
 export default withHandler({
-  method: "GET",
+  method: "POST",
   handler,
   isPrivate: false,
 });
